@@ -1,0 +1,38 @@
+==> DATABASES
+
+student
+student_biodata
+student_classroom
+
+master_school_year
+master_classroom
+master_payment_term
+master_basic_cost
+master_student_guardian (user_id/teacher, school_year, classroom)
+
+jurnal
+-> id
+-> user_id
+-> student_id
+-> reference (unique)
+-> description
+-> attachment (opstional)
+-> status (success, pending, waiting, canceled)
+-> uuid
+-> created_at
+-> updated_at
+
+jurnal_detail
+-> id
+-> jurnal_id
+-> amount
+-> coa_id
+
+=> SDK payable/revenue
+-> pendaftaran
+-> spp, seragam dll
+-> payment term spp
+
+=> SDK Payout/expense
+-> salary
+-> activities
