@@ -6,6 +6,7 @@ use App\Http\Controllers\auth\AuthController;
 // admin
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\JournalController;
 use App\Http\Controllers\admin\CoaController;
 use App\Http\Controllers\admin\CostCenterController;
 
@@ -32,6 +33,18 @@ Route::group([
     $router->get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     $router->get('profile', [ProfileController::class, 'index'])->name('profile');
     $router->post('profile/store', [ProfileController::class, 'store'])->name('profile.store');
+
+    // jurnal
+    Route::group([
+        'prefix' => 'journal',
+    ], function ($router) {
+        $router->get('/', [JournalController::class, 'index'])->name('journal.index');
+        $router->get('data', [JournalController::class, 'getData'])->name('journal.data');
+        $router->get('new', [JournalController::class, 'create'])->name('journal.create');
+        $router->post('store', [JournalController::class, 'store'])->name('journal.store');
+        $router->get('edit/{id}', [JournalController::class, 'edit'])->name('journal.edit');
+        $router->get('delete/{id}', [JournalController::class, 'destroy'])->name('journal.delete');
+    });
 
     // chart of account
     Route::group([

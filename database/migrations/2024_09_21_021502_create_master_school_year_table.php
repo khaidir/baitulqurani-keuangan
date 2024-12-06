@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('master_school_year', function (Blueprint $table) {
-            $table->unsignedTinyInteger('id', 3);
+            $table->increments('id', 3);
             $table->string('years', 3);
             $table->string('description')->nullable();
             $table->boolean('status')->default(false);

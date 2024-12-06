@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('master_classroom', function (Blueprint $table) {
-            $table->unsignedTinyInteger('id', 3);
+            $table->increments('id', 3);
             $table->string('room', 24);
             $table->string('location');
             $table->text('description')->nullable();

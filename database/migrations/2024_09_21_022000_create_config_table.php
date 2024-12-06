@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('config', function (Blueprint $table) {
-            $table->unsignedTinyInteger('id', 3);
+            $table->increments('id', 3);
             $table->string('path')->default(0);
             $table->text('content');
             $table->boolean('status')->default(false);

@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box mb-0 d-sm-flex align-items-center justify-content-between">
-                    <h2 class="mb-sm-0 m-0 font-size-18 page-title">Chart of Account (COA)</h2>
+                    <h2 class="mb-sm-0 m-0 font-size-18 page-title">Jurnal</h2>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                            <li class="breadcrumb-item">COA</li>
+                            <li class="breadcrumb-item">Jurnal</li>
                             <li class="breadcrumb-item active">Lists</li>
                         </ol>
                     </div>
@@ -30,7 +30,7 @@
                                             <span id="dlength"></span>
                                         </div>
                                         <div class="col-12 col-sm-12">
-                                            <a href="/coa/new" class="btn btn-md btn-primary btn-float" style="margin-top:;">Add New</a>
+                                            <a href="/journal/new" class="btn btn-md btn-primary btn-float" style="margin-top:;">Buat Jurnal</a>
                                         </div>
                                         <div class="col-12 col-sm-12 mt-4">
                                             <span id="dfilter"></span>
@@ -49,13 +49,14 @@
                                 <table id="table" class="table table-hover data-table table-striped-columns dataTable" style="width:100%;">
                                     <thead class="table-light">
                                         <tr>
-                                            <th width="40">ID</th>
-                                            <th width="150">Kode</th>
-                                            <th width="600">Akun</th>
-                                            <th width="240">Cost Center</th>
-                                            <th width="100">Posisi</th>
+                                            <th width="30">#</th>
+                                            <th width="120">Tanggal</th>
+                                            <th width="120">Referensi</th>
+                                            <th width="320">Akun</th>
+                                            <th width="120">Debet</th>
+                                            <th width="120">Kredit</th>
                                             <th width="100">Status</th>
-                                            <th width="100">Action</th>
+                                            <th width="120">Actions</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -75,25 +76,23 @@ $(document).ready(function() {
     $('#table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('coa.data') }}",
+        ajax: "{{ route('journal.data') }}",
         columns: [
             {
                 data: null,
-                name: 'number',
                 orderable: false,
                 searchable: false,
                 render: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
-            { data: 'code' },
-            { data: 'coa_name' },
-            { data: 'cost_center' },
-            { data: 'position' },
-            { data: 'status', render: function(data) {
-                return data == true ? 'Aktif' : 'Tidak Aktif';
-            }},
-            { data: 'action', orderable: false, searchable: false }
+            { data: 'tanggal', name: 'tanggal' },
+            { data: 'reference', name: 'reference' },
+            { data: 'akun', name: 'akun' },
+            { data: 'debet', name: 'debet' },
+            { data: 'credit', name: 'credit' },
+            { data: 'status', name: 'status'},
+            { data: 'action', name: 'action', orderable: false, searchable: false }
         ]
     });
 
@@ -135,7 +134,7 @@ $(document).ready(function() {
         }).then(function(result) {
             if (result?.value && (result?.value[0] != "")) {
                 $.ajax({
-                    url : '/coa/delete/' + id,
+                    url : '/journal/delete/' + id,
                     type : "get",
                     success: function(response){
                         Swal.fire(

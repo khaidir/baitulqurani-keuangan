@@ -16,8 +16,8 @@
                         <span key="t-access">Transaksi</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('jurnal/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/jurnal" class="waves-effect {{ request()->is('jurnal/*') == 1 ? 'active' : ''}}">
+                <li class="{{ request()->is('journal/*') == 1 ? 'mm-active' : ''}}">
+                    <a href="/journal" class="waves-effect {{ request()->is('journal/*') == 1 ? 'active' : ''}}">
                         <i class='bx bx-file'></i>
                         <span key="t-lokasi">Jurnal</span>
                     </a>

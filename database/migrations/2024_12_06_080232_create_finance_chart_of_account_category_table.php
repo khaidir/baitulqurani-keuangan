@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('finance_jurnal', function (Blueprint $table) {
+        Schema::create('finance_chart_of_account_category', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('student_id')->nullable();
-            $table->string('reference', 24);
-            $table->string('attachment')->nullable();
+            $table->integer('category_id')->nullable();
+            $table->string('category', 120)->nullable();
+            $table->string('description')->nullable();
             $table->boolean('status')->default(false);
-            $table->uuid('uuid');
             $table->timestamp('created_at', precision: 0)->useCurrent();
-            $table->timestamp('updated_at')->useCurrentOnUpdate();
+            // $table->timestamp('updated_at', 0)->useCurrentOnUpdate();
+            $table->timestamp('updated_at', 0)->useCurrent();
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('finance_jurnal');
+        Schema::dropIfExists('finance_chart_of_account_category');
     }
 };

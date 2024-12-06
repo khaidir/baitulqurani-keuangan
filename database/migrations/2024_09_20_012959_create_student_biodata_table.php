@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('student_biodata', function (Blueprint $table) {
-            $table->unsignedInteger('id', 6);
+            $table->increments('id', 6);
             $table->unsignedInteger('student_id');
             $table->string('birth_place', 40)->nullable();
             $table->date('birth_date')->nullable();

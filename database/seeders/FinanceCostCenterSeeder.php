@@ -9,39 +9,16 @@ class FinanceCostCenterSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('finance_cost_center')->insert([
-            [
-                'id' => 1,
-                'cost_name' => 'Administrasi Sekolah',
-                'description' => 'Pengeluaran terkait administrasi sekolah',
-                'status' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'id' => 2,
-                'cost_name' => 'Operasional Sekolah',
-                'description' => 'Pengeluaran untuk operasional sekolah seperti listrik dan air',
-                'status' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'id' => 3,
-                'cost_name' => 'Gaji Guru dan Staf',
-                'description' => 'Pengeluaran untuk gaji guru dan staf sekolah',
-                'status' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'id' => 4,
-                'cost_name' => 'Penerimaan Sekolah',
-                'description' => 'Penerimaan sekolah dari SPP dan hibah',
-                'status' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
+        $cost_centers = [
+            // Contoh cost centers
+            ['id' => 1, 'cost_name' => 'Administrasi', 'description' => 'Cost center untuk administrasi'],
+            ['id' => 2, 'cost_name' => 'Operasional', 'description' => 'Cost center untuk operasional'],
+            ['id' => 3, 'cost_name' => 'Pemasaran', 'description' => 'Cost center untuk pemasaran'],
+            ['id' => 4, 'cost_name' => 'Produksi', 'description' => 'Cost center untuk produksi'],
+            ['id' => 5, 'cost_name' => 'Penelitian dan Pengembangan', 'description' => 'Cost center untuk R&D'],
+            ['id' => 6, 'cost_name' => 'Keuangan', 'description' => 'Cost center untuk keuangan'],
+            ['id' => 7, 'cost_name' => 'IT', 'description' => 'Cost center untuk IT'],
+        ];
+        DB::table('finance_cost_center')->insert($cost_centers);
     }
 }

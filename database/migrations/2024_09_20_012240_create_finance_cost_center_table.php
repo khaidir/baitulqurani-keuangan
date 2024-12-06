@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('finance_cost_center', function (Blueprint $table) {
-            $table->unsignedTinyInteger('id', 2);
+            $table->increments('id', 2);
             $table->string('cost_name', 50);
             $table->string('description')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamp('created_at', precision: 0)->useCurrent();
-            $table->timestamp('updated_at')->useCurrentOnUpdate();
+            $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable();
         });
     }
 
