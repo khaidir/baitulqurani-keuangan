@@ -67,21 +67,21 @@
                                 </div>
 
                                 <div class="row mb-4">
-                                    <label for="position" class="col-sm-3 col-form-label">Position</label>
-                                    <div class="col-sm-5">
-                                        <input name="position" class="form-control @error('position') is-invalid @enderror" value="{{ old('position', @$data->position) }}" placeholder="Your Position">
-                                        @if ($errors->has('position'))
-                                            <span class="text-danger">{{ $errors->first('position') }}</span>
+                                    <label for="handphone" class="col-sm-3 col-form-label">Handphone</label>
+                                    <div class="col-sm-4">
+                                        <input name="handphone" class="form-control @error('handphone') is-invalid @enderror" value="{{ old('handphone', @$user->handphone) }}" placeholder="Handphone">
+                                        @if ($errors->has('handphone'))
+                                            <span class="text-danger">{{ $errors->first('handphone') }}</span>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="row mb-4">
-                                    <label for="address" class="col-sm-3 col-form-label">Address</label>
-                                    <div class="col-sm-8">
-                                        <input name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address', @$data->address) }}" placeholder="Your Address">
-                                        @if ($errors->has('address'))
-                                            <span class="text-danger">{{ $errors->first('address') }}</span>
+                                    <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+                                    <div class="col-sm-7">
+                                        <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat">{{ old('alamat', @$user->alamat) }}</textarea>
+                                        @if ($errors->has('alamat'))
+                                            <span class="text-danger">{{ $errors->first('alamat') }}</span>
                                         @endif
                                     </div>
                                 </div>

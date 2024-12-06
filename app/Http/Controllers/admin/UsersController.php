@@ -28,21 +28,13 @@ class UsersController extends Controller
 
         $user->transform(function ($user) {
             $roles = $user->getRoleNames();
-
             $rolesString = implode(', ', $roles->toArray());
             $rolesString = ucwords($rolesString);
-
             $badgeHtml = '';
             foreach ($roles as $role) {
-                if ($role == 'company') {
-                    $company = Companies::where('id', $user->company_id)->first();
-                    $badgeHtml .= "<span class='badge bg-primary'>".ucwords($role) .': '. $company->name."</span> ";
-                } else {
-                    $badgeHtml .= "<span class='badge bg-primary'>". ucwords($role) ."</span> ";
-                }
+                $badgeHtml .= "<span class='badge bg-primary'>". ucwords($role) ."</span> ";
             }
             $user->roles_names = $badgeHtml;
-
             return $user;
         });
 
@@ -60,8 +52,7 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::select('id', 'name')->get();
-        $company = Companies::select('id', 'name')->get();
-        return view('admin.users.form', compact('roles', 'company'));
+        return view('admin.users.form', compact('roles'));
     }
 
     public function store(Request $request)
@@ -115,11 +106,11 @@ class UsersController extends Controller
     {
 
         $user = User::findOrFail($id);
+        // dd($user);
         $roles = Role::select('id', 'name')->get();
         $userRole = $user->roles->pluck('id', 'name')->toArray();
-        $company = Companies::select('id', 'name')->get();
 
-        return view('admin.users.form', compact('user','roles', 'userRole', 'company'));
+        return view('admin.users.form', compact('user','roles', 'userRole'));
     }
 
     public function destroy($id)

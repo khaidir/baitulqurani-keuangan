@@ -9,57 +9,37 @@
                         <span key="t-dashboards">Dashboard</span>
                     </a>
                 </li>
-                <li class="menu-title" key="t-menu">Visitor</li>
-                <li class="{{ request()->is('access/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/visitor" class="waves-effect {{ request()->is('access/*') == 1 ? 'active' : ''}}">
+                <li class="menu-title" key="t-menu">Keuangan</li>
+                <li class="{{ request()->is('transaksi/*') == 1 ? 'mm-active' : ''}}">
+                    <a href="/transaksi" class="waves-effect {{ request()->is('transaksi/*') == 1 ? 'active' : ''}}">
                         <i class='bx bxs-file-doc'></i>
-                        <span key="t-access">Visitor</span>
+                        <span key="t-access">Transaksi</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('worker/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/worker" class="waves-effect {{ request()->is('worker/*') == 1 ? 'active' : ''}}">
+                <li class="{{ request()->is('jurnal/*') == 1 ? 'mm-active' : ''}}">
+                    <a href="/jurnal" class="waves-effect {{ request()->is('jurnal/*') == 1 ? 'active' : ''}}">
                         <i class='bx bx-file'></i>
-                        <span key="t-lokasi">New Worker</span>
+                        <span key="t-lokasi">Jurnal</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('extend/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/extend" class="waves-effect {{ request()->is('extend/*') == 1 ? 'active' : ''}}">
+                <li class="{{ request()->is('bukubesar/*') == 1 ? 'mm-active' : ''}}">
+                    <a href="/bukubesar" class="waves-effect {{ request()->is('bukubesar/*') == 1 ? 'active' : ''}}">
                         <i class='bx bx-file'></i>
-                        <span key="t-lokasi">Extend</span>
+                        <span key="t-lokasi">Buku Besar</span>
                     </a>
                 </li>
-                {{-- <li class="{{ request()->is('verification/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/verification" class="waves-effect {{ request()->is('verification/*') == 1 ? 'active' : ''}}">
-                        <i class='bx bx-user-voice' ></i>
-                        <span key="t-lokasi">Verification</span>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="menu-title" key="t-apps">Reporting</li>
-                <li class="{{ request()->is('statistic/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/statistic" class="waves-effect {{ request()->is('statistic/*') == 1 ? 'active' : ''}}">
-                        <i class='bx bx-pie-chart-alt-2'></i>
-                        <span key="t-provider">Statistic</span>
-                    </a>
-                </li>
-                <li class="{{ request()->is('report/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/report" class="waves-effect {{ request()->is('report/*') == 1 ? 'active' : ''}}">
-                        <i class='bx bx-spreadsheet'></i>
-                        <span key="t-provider">Report</span>
-                    </a>
-                </li> --}}
 
                 <li class="menu-title" key="t-apps">Master Data</li>
-                <li class="{{ request()->is('company/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/company" class="waves-effect {{ request()->is('company/*') == 1 ? 'active' : ''}}">
+                <li class="{{ request()->is('coa/*') == 1 ? 'mm-active' : ''}}">
+                    <a href="/coa" class="waves-effect {{ request()->is('coa/*') == 1 ? 'active' : ''}}">
                         <i class='bx bx-building' ></i>
-                        <span key="t-lokasi">Companies</span>
+                        <span key="t-lokasi">Chart of Account</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('ppe/*') == 1 ? 'mm-active' : ''}}">
-                    <a href="/ppe" class="waves-effect {{ request()->is('ppe/*') == 1 ? 'active' : ''}}">
-                        <i class='bx bx-user'></i>
-                        <span key="t-provider">Goods/PPE</span>
+                <li class="{{ request()->is('cost-center/*') == 1 ? 'mm-active' : ''}}">
+                    <a href="/cost-center" class="waves-effect {{ request()->is('cost-center/*') == 1 ? 'active' : ''}}">
+                        <i class='bx bx-git-branch'></i>
+                        <span key="t-provider">Cost Center</span>
                     </a>
                 </li>
 

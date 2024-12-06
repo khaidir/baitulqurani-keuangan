@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-4">
-                                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                    <label for="email" class="col-sm-3 col-form-label">Permissions</label>
                                     <div class="col-sm-9">
                                         @foreach ($permissions as $group_name => $permissionGroup)
                                             <div class="card mb-3">

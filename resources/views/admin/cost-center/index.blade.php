@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box mb-0 d-sm-flex align-items-center justify-content-between">
-                    <h2 class="mb-sm-0 m-0 font-size-18 page-title">Users</h2>
+                    <h2 class="mb-sm-0 m-0 font-size-18 page-title">Cost Center</h2>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                            <li class="breadcrumb-item">Users</li>
+                            <li class="breadcrumb-item">Cost Center</li>
                             <li class="breadcrumb-item active">Lists</li>
                         </ol>
                     </div>
@@ -30,7 +30,7 @@
                                             <span id="dlength"></span>
                                         </div>
                                         <div class="col-12 col-sm-12">
-                                            <a href="/users/new" class="btn btn-md btn-primary btn-float" style="margin-top:;">Add New</a>
+                                            <a href="/cost-center/new" class="btn btn-md btn-primary btn-float" style="margin-top:;">Add New</a>
                                         </div>
                                         <div class="col-12 col-sm-12 mt-4">
                                             <span id="dfilter"></span>
@@ -50,12 +50,9 @@
                                     <thead class="table-light">
                                         <tr>
                                             <th width="40">ID</th>
-                                            <th width="200">Email</th>
-                                            <th width="180">Nama Lengkap</th>
-                                            <th width="130">Handphone</th>
-                                            <th width="300">Alamat</th>
-                                            <th width="220">Roles</th>
-                                            <th width="80">Status</th>
+                                            <th width="200">Cost Center</th>
+                                            <th width="700">Description</th>
+                                            <th width="100">Status</th>
                                             <th width="100">Action</th>
                                         </tr>
                                     </thead>
@@ -76,7 +73,7 @@ $(document).ready(function() {
     $('#table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('users.data') }}",
+        ajax: "{{ route('cost-center.data') }}",
         columns: [
             {
                 data: null,
@@ -87,12 +84,8 @@ $(document).ready(function() {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
-            { data: 'email' },
-            { data: 'name' },
-            { data: 'handphone' },
-            { data: 'alamat' },
-            { data: 'roles_names' },
-            // { data: 'status' },
+            { data: 'cost_name' },
+            { data: 'description' },
             { data: 'status', render: function(data) {
                 return data == true ? 'Aktif' : 'Tidak Aktif';
             }},
@@ -114,7 +107,6 @@ $(document).ready(function() {
     $('select').select2({
         placeholder: 'Choose'
     });
-    $('#generate').addClass("mm-active");
 
     $(document).on('click', '.delete', function () {
 
@@ -126,7 +118,7 @@ $(document).ready(function() {
         })
 
         Swal.fire({
-            title: 'Are your sure ?',
+            title: 'Are you sure?',
             icon: 'warning',
             showCloseButton: true,
             showCancelButton: true,
@@ -139,7 +131,7 @@ $(document).ready(function() {
         }).then(function(result) {
             if (result?.value && (result?.value[0] != "")) {
                 $.ajax({
-                    url : '/company/delete/' + id,
+                    url : '/cost-center/delete/' + id,
                     type : "get",
                     success: function(response){
                         Swal.fire(
@@ -162,13 +154,12 @@ $(document).ready(function() {
             ) {
                 Swal.fire(
                     'Cancel',
-                    'Data do not delete',
+                    'Data was not deleted',
                     'error'
                 )
             }
         })
-        });
+    });
 });
 </script>
 @endsection
-

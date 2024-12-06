@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Client - Semen Bangun Andalas</title>
+        <title>Keuangan</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Applicaiton Core" name="description" />
         <meta content="Khaidir Hasan" name="author" />
